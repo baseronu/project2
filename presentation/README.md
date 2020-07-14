@@ -16,7 +16,7 @@ The goal of this study is to analyze the factors associated with "good" loan, i.
 
 The process involved:
 
-1. [Data Cleaning and Descriptive Analysis](#Data-Cleaning) 
+1. [Data Cleaning and Descriptive Analysis](#Data-Cleaning-and -Descriptive- Analysis) 
 2. Classification 
 3. Regression Modeling
 4. Analytical Engineering
@@ -53,7 +53,7 @@ We had total XXXX loans issued between 2014 and 2016. The missing data sets were
 |36 Month Loan|766,581| 74%|
 |60 Month Loan|275,127| 26%|
 |Income Verified|750330|72%|
-|Individual Application|99%|
+|Individual Application| 1,033,631||99%|
 |Good Loan| 840,793|81%|
 
 From the table above, we can see that 81% of the loan is fully paid when the loan expired.  Most of the loans are individually applied (99%), 36 Month (74%), most of the applicants pay mortage (49%) with Fico scores close to 700. Average loan is around 15K with average interest rate 12.9%. 
