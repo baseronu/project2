@@ -16,8 +16,8 @@ The goal of this study is to analyze the factors associated with "good" loan, i.
 
 The process involved:
 
-1. [Data Cleaning and Descriptive Analysis](#Data-Cleaning-and -Descriptive- Analysis) 
-2. Classification 
+1. [Data Cleaning and Descriptive Analysis](#Data-Cleaning-and-Descriptive-Analysis) 
+2. [Classification](#Classification)
 3. Regression Modeling
 4. Analytical Engineering
 5. Calibration Curves
@@ -53,7 +53,7 @@ We had total XXXX loans issued between 2014 and 2016. The missing data sets were
 |36 Month Loan|766,581| 74%|
 |60 Month Loan|275,127| 26%|
 |Income Verified|750330|72%|
-|Individual Application| 1,033,631||99%|
+|Individual Application| 1,033,631|99%|
 |Good Loan| 840,793|81%|
 
 From the table above, we can see that 81% of the loan is fully paid when the loan expired.  Most of the loans are individually applied (99%), 36 Month (74%), most of the applicants pay mortage (49%) with Fico scores close to 700. Average loan is around 15K with average interest rate 12.9%. 
@@ -100,4 +100,18 @@ Most of the loans were Grade B and C. This two group was about 58% of overall lo
  |       A5 |     49,112|
 
 
+### Classification
 
+We used random forest algorithms for classification. It is a ensemble learning method, composed of multiple decision trees. By averaging out the impact of several decsion trees, random forests tend to improve prediction. 
+
+We are trying to predict whether the loan will be paid full. "Good Loan" is our dependent variable. We use train-test-split to split the data into training data and testing data. There were 585,423 oboservations in the training data and 260,188 data in the testing data. 
+
+For 260,188 observations in testing data, 80% of them were good loan. Among the good loans, we were able to predict 98% correctly. Among the loans defaulted (49,900), our model predicted 92%. 
+
+| | Predicted 0   | Predicted 1 | 
+|:------ |:-------------: | :----------: | 
+ |    Actual 0 |     3888| 46012|
+ |      Actual 1 |   4360|205928|
+ 
+ 
+ Accuracy score which is the fraction of samples predicted correctly is calculated as 0.81. Classification report presented 
