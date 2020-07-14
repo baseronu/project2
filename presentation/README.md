@@ -62,42 +62,42 @@ The following table shows the purpose of the loans:
 
 | Purpose     |  Frequency | 
 | :------------- | :----------: | 
-      Credit Card |    237,310|
-Debt Consolidation |    612,347|
-       Educational |          1|
-  Home Improvement |     66,229|
-             House |      3,986|
-    Major Purchase |     20,717|
-           Medical |     11,303|
-            Moving |      6,799|
-             Other |     56,077|
-  Renewable Energy |        635|
-   Small Business |     10,035|
-          Vacation |      6,574|
-           Wedding |         14|
+ | Credit Card |    237,310|
+| Debt Consolidation |    612,347|
+|        Educational |          1|
+|   Home Improvement |     66,229|
+|              House |      3,986|
+ |    Major Purchase |     20,717|
+ |           Medical |     11,303|
+  |           Moving |      6,799|
+   |           Other |     56,077|
+ |  Renewable Energy |        635|
+ |   Small Business |     10,035|
+ |          Vacation |      6,574|
+  |          Wedding |         14|
            
 Most of the loans are used for debt consolidation (59%) and credit card payments (23%). LendingClub loan grade distribution for our datasets were as fallows:
 
 | Grade     | Frequency  | 
 | :------------- | :----------: | 
-      A |    177,807|
-        B |    302,463|
-        C |    300,635|
-        D |    155,573|
-        E |     75,508|
-        F |     23,699|
-        G |      6,023|
+ |      A |    177,807|
+ |        B |    302,463|
+ |        C |    300,635|
+ |        D |    155,573|
+  |       E |     75,508|
+ |        F |     23,699|
+  |       G |      6,023|
         
 Most of the loans were Grade B and C. This two group was about 58% of overall loans. Under each grade group, LendingClub further categories the loans into five categories according to its quality. For example, 177,807 Grade A loans further subcategorized as follows:
 
 
 | Grade A    | Frequency  | 
 | :------------- | :----------: | 
-            A1 |     36,139|
-       A2 |     27,291|
-       A3 |     26,555|
-       A4 |     38,710|
-       A5 |     49,112|
+ |            A1 |     36,139|
+ |       A2 |     27,291|
+ |       A3 |     26,555|
+ |       A4 |     38,710|
+ |       A5 |     49,112|
 
 
 
