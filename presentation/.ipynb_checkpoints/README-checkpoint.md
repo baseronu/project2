@@ -37,9 +37,9 @@ We had total 1,091,131 loans issued between 2014 and 2016. The missing data sets
 
 | Variable      |  Mean (N)  | STD (%)    |
 | :------------- | :----------: | -----------: |
-|  Loan Amount |\\$14,723   | 8,686    |
+|  Loan Amount |\$14,723   | 8,686    |
 | Interst Rate   | 12.9| 4.5  |
-|Annual Income| \\$77,111|71,617|
+|Annual Income| \$77,111|71,617|
 |Monthly Debt Payments/ Total Debt Obligations|18.73|9.31|
 |High Fico Score|697.94|30.49|
 |Low Fico Score|693.94|30.49|
