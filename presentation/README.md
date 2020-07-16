@@ -21,6 +21,7 @@ The process involved:
 3. [Decision Tree](#Decision-Tree)
 4. [Gradient Boosting](#Gradient-Boosting)
 5. [Neural Network](#Neural-Network)
+6. [Model Evaluation] (#Model-Evaluation)
 
 ### Data Cleaning and Descriptive Analysis
 
@@ -86,7 +87,7 @@ Most of the loans are used for debt consolidation (59%) and credit card payments
  |        F |     23,699|
   |       G |      6,023|
         
-Most of the loans were Grade B and C. This two group was about 58% of overall loans. Under each grade group, LendingClub further categories the loans into five categories according to its quality. For example, 177,807 Grade A loans further subcategorized as follows:
+Most of the loans were Grade B and C. This two group was about 58\% of overall loans. Under each grade group, LendingClub further categories the loans into five categories according to its quality. For example, 177,807 Grade A loans further subcategorized as follows:
 
 
 | Grade A    | Frequency  | 
@@ -108,7 +109,7 @@ We used random forest algorithms for classification. It is a ensemble learning m
 
 We are trying to predict whether the loan will be paid full. "Good Loan" is our dependent variable. We use train-test-split to split the data into training data and testing data. Total number of 1,040,752 observations are divided as follows: 780,564 oboservations in the training data and 260,188 data in the testing data. 
 
-For 260,188 observations in testing data, 81% of them were good loan. Among the good loans, we were able to predict 98% correctly. Among the loans defaulted (49,900), our model predicted 92%. 
+For 260,188 observations in testing data, 81\% of them were good loan. Among the good loans, we were able to predict 98\% correctly. Among the loans defaulted (49,900), our model predicted 92%. 
 
 | | Predicted 0   | Predicted 1 | 
 |:------ |:-------------: | :----------: | 
@@ -129,7 +130,7 @@ For 260,188 observations in testing data, 81% of them were good loan. Among the 
 
 Precision is the ability of a classifier not to label and instance positive that is actually negative. For each class it is defined as the ratio of the true positives to the sum of true and false positives. Out of 8244 predicted default loan,  3944 of them were correct, therefore it was 0.48, and out of 251,884 predicted good loan, 205,928 of them were correct, i.e. 82%.
 
-Recall is the ability of classifier to find all positive instances. Among the good loans, we were able to predict 98% correctly. Among the loans defaulted, our model predicted 8%. 
+Recall is the ability of classifier to find all positive instances. Among the good loans, we were able to predict 98\% correctly. Among the loans defaulted, our model predicted 8%. 
 
 The f1-score is a weighted harmonic mean of precision and recall such that the best score is 1.0 and the worst is 0.0. As a rule of thumb, the weighted avearge of f1-score should be used to compare classifer models, not global accuracy. Therefore we for random forest's comparision score, we will use 0.75 to compare with the other models. 
 
@@ -181,7 +182,7 @@ For 260,188 observations in testing data, 70\% of them were good loan according 
 
 Recall has also similar percentage to precision. On average only 2 of every 10 good loan in reality missed by decision tree model. Weighted f1-score is 0.71 was lower than random forest model value 0.75.
 
-According the figure below, AUC  is 0.68, therefore there is  54\% chance that model will be able to distinguish between positive class and negative class.  
+According the figure below, AUC  is 0.54, therefore there is  54\% chance that model will be able to distinguish between positive class and negative class.  
 
 
 ![default4.jpg](Images/AUCRF_dt.png)
@@ -263,3 +264,20 @@ According the figure below, AUC  is 0.68, therefore there is  68\% chance that m
 
 
 ![default5.jpg](Images/AUC_nn.png)
+
+
+
+  
+### Model Evaluation
+
+The following table summarizes the evaulation performance of different models in the project. 
+
+
+| Model     | AUC|   Accuracy       | Weighted f1-score  |  
+|:-----:|:---------: |:-------------: | :----------: |  
+| Random Forest     |  0.68    |   0.81      |     0.75   | 
+| Decision Tree    |  0.54      |    0.70     | 0.71      |  
+|Gradient Boosting|   0.70      |      0.70        |     0.74  |  
+|  Neural Network  |   0.68  |   0.81    | 0.87  |   
+
+Neural Network would be preferable model compared to other models used. 
