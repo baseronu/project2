@@ -18,11 +18,9 @@ The process involved:
 
 1. [Data Cleaning and Descriptive Analysis](#Data-Cleaning-and-Descriptive-Analysis) 
 2. [Random Forest](#Random-Forest)
-3. [Logistic Regression](#Logistic-Regression)
-4. [Decision Tree](#Decision-Tree)
-5. Calibration Curves
-6. Evaluation of Model Performance
-
+3. [Decision Tree](#Decision-Tree)
+4. [Gradient Boosting](#Gradient-Boosting)
+5. [Neural Network](#Neural-Network)
 
 ### Data Cleaning and Descriptive Analysis
 
@@ -135,7 +133,7 @@ Recall is the ability of classifier to find all positive instances. Among the go
 
 The f1-score is a weighted harmonic mean of precision and recall such that the best score is 1.0 and the worst is 0.0. As a rule of thumb, the weighted avearge of f1-score should be used to compare classifer models, not global accuracy. Therefore we for random forest's comparision score, we will use 0.75 to compare with the other models. 
 
-Next, we looked at AUC (Area Under the Curve) - ROC (Receiver Operating Characteristics) curve. ROC is a probability curve and AUC represents degree or measure of separability.  According the figure below, AUC  is 0.68, therefore there is  68% chance that model will be able to distinguish between positive class and negative class.  
+Next, we looked at AUC (Area Under the Curve) - ROC (Receiver Operating Characteristics) curve. ROC is a probability curve and AUC represents degree or measure of separability.  According the figure below, AUC  is 0.68, therefore there is  68\% chance that model will be able to distinguish between positive class and negative class.  
 
 ![default3.jpg](Images/AUCRF.png)
 
@@ -161,3 +159,107 @@ Decision trees are supervised learning algorithm used for classification. The ma
 
 The difference from Random Forest model that we applied befoe is that a decision tree is built on an entire dataset using all variables of interest whereas random forest randomly selects observations and specific features to built multiple decision trees from and the averages the results. 
 
+For 260,188 observations in testing data, 70\% of them were good loan according to decision tree model, which is smaller to random forest model.
+
+| | Predicted 0   | Predicted 1 | 
+|:------ |:-------------: | :----------: | 
+ |    Actual 0 |     14170| 35730|
+ |      Actual 1 |  41562|168726|
+ 
+ 
+ As presented in classification report below, accuracy score shows that 7 of every 10 classification is done correctly. Precision value of 83\% means that on average 2 of every good loan labeled as default and 8 of them labelled as good loan by decision tree model.
+ 
+
+|      | precision |   recall        | f1-score  | support|
+|:-----:|:---------: |:-------------: | :----------: | :----------:|
+| 0     |  0.25      |   0.28       |     0.27   |  49900|
+| 1     |  0.83      |    0.80     | 0.81       | 210288
+|accuracy  |         |              |     0.70   | 260188|
+|   macro avg   |    0.54   |   0.54     | 0.54  |  260188|
+|weighted avg    |   0.72   |   0.70  |    0.71  |  260188|
+
+
+Recall has also similar percentage to precision. On average only 2 of every 10 good loan in reality missed by decision tree model. Weighted f1-score is 0.71 was lower than random forest model value 0.75.
+
+According the figure below, AUC  is 0.68, therefore there is  54\% chance that model will be able to distinguish between positive class and negative class.  
+
+
+![default4.jpg](Images/AUCRF_dt.png)
+
+### Gradient Boosting
+
+Gradient boosting is one of the most powerful techniques for building predictive models. The method involves three elements: (a) A loss function is optimized (b) A weak learner to make predictions (c) An additive model to add weak learners to minimize the loss function. 
+
+A loss function is used for parameter estimation which minimizes the error term in regression. We used logistic regresssion for classificiation with proabilistic outputs.  The learning rate is the tuning parameter in an optimization algorithm that determines the step size at each iteration while moving toward a minimum of a loss function. We used different learning rates ranged from 0.05 to 1. Learning rate shrinked the contribution of each tree by the rates that are defined. We used 25 boosting stages to perform. We used 5 features to consider when looking for the best split. Number of nodes in each tree was 3. Depending on the different learning rates, the accuracy score score distribution is given below. 
+
+|Learning Rate     | Accuracy score (training)| Accuracy score (validation)|
+| :------------- | :----------: | -----------: |
+| 0.05 |0.808 | 0.808   |
+| 0.1  | 0.808 | 0.808  |
+|0.25| 0.809 |0.810 |
+|0.5|0.809|0.809 |
+|0.75|0.809 |0.809 |
+|1|0.809 |0.810 |
+
+We did not see big gain in accuracy scores by increasing the range in learning rates. 
+
+For 260,188 observations in testing data, 81\% of them were good loan according to gradient boosting model, which is smillar to random forest model. 
+
+| | Predicted 0   | Predicted 1 | 
+|:------ |:-------------: | :----------: | 
+ |    Actual 0 |     2419| 47481|
+ |      Actual 1 |  2125|208163|
+ 
+ 
+As presented in classification report below, accuracy score shows that 8 of every 10 classification is done correctly. Precision value of 81\% means that on average 2 of every good loan labeled as default and 8 of them labelled as good loan by decision tree model. Weighted f1-score is 0.74 was lower than random forest model value 0.75.
+ 
+
+|      | precision |   recall        | f1-score  | support|
+|:-----:|:---------: |:-------------: | :----------: | :----------:|
+| 0     |  0.53     |   0.05       |     0.09   |  49900|
+| 1     |  0.81      |    0.99    | 0.89       | 210288
+|accuracy  |         |              |     0.70   | 260188|
+|   macro avg   |    0.67   |   0.52     | 0.49  |  260188|
+|weighted avg    |   0.76   |   0.81 |    0.74  |  260188|
+
+According the figure below, AUC  is 0.70, therefore there is  70\% chance that model will be able to distinguish between positive class and negative class.  
+
+
+![default5.jpg](Images/AUC_grad.png)
+
+### Neural Network
+
+As a final model we applied network. Neural networks take input data, train themselves to recognize patterns found in the data and then predict the output for a new set of similar data. We have used 2 layer neural network.
+
+![default6.jpg](Images/neural_network.png)
+
+Recurrent neural network (RNN) we have applied use its reasoning previous events in the film to inform later ones. In particular, Long Short Term Memory networks (LSTMSs), which are special kind of RNN, capable of learning long-term dependencies. 
+
+We have used 1000 iterations and 50 epoch, which is a measure of the number of times all of the training vectors are used once to update weights. 
+
+
+|Layer (type)       | Output Shape | Param #  |
+| :------------- | :----------: | -----------: |
+|dense_3 (Dense)| (None, 50) |  1650   |
+| dense_4 (Dense)   | (None, 50)| 2550   |
+|dense_5 (Dense) |  (None, 1)  | 51 |
+ 
+
+The accuracy score was 0.81. 
+
+
+ As presented in classification report below, accuracy score shows that 8 of every 10 classification is done correctly. Precision value of 98\% means that on average none of every good loan labeled as default and 8 of them labelled as good loan by decision tree model. Weighted f1-score is 0.87 was  higher than random forest model value 0.75.
+ 
+
+|      | precision |   recall        | f1-score  | support|
+|:-----:|:---------: |:-------------: | :----------: | :----------:|
+| 0     |  0.08    |   0.50       |     0.13| 7543|
+| 1     |  0.98      |    0.82   | 0.89       | 252645
+|accuracy  |         |              |     0.81   | 260188|
+|   macro avg   |    0.53   |   0.66     | 0.51  |  260188|
+|weighted avg    |   0.96   |   0.81 |    0.87  |  260188|
+
+According the figure below, AUC  is 0.68, therefore there is  68\% chance that model will be able to distinguish between positive class and negative class.  
+
+
+![default5.jpg](Images/AUC_nn.png)
