@@ -21,7 +21,7 @@ The process involved:
 3. [Decision Tree](#Decision-Tree)
 4. [Gradient Boosting](#Gradient-Boosting)
 5. [Neural Network](#Neural-Network)
-6. [Model Evaluation] (#Model-Evaluation)
+6. [Model Evaluation](#Model-Evaluation)
 
 ### Data Cleaning and Descriptive Analysis
 
