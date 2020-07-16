@@ -1,4 +1,4 @@
-# Factors Associated with high likelyhood of full payment loan  : A Case Study with LendingClub Data
+# Factors associated with high likelyhood of full payment loan  : A Case Study with LendingClub Data
 
 ![deep-learning.jpg](Images/lendingclub.png)
 
